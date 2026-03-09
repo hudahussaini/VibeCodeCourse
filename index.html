@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Code with Claude Code — Build Anything with AI</title>
+  <meta name="description" content="Stop being stuck on no-code platforms. Learn to vibe code with Claude Code and build real software without limits. Join the waitlist for $50." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --border: #27272a;
+      --text: #f4f4f5;
+      --muted: #71717a;
+      --subtle: #3f3f46;
+      --green: #22c55e;
+      --green-light: #4ade80;
+      --green-dim: #14532d;
+      --green-border: #166534;
+      --red: #f87171;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+
+    /* ---- Layout ---- */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; }
+
+    /* ---- Badge ---- */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(20, 83, 45, 0.5);
+      border: 1px solid var(--green-border);
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34,197,94,0.12), transparent);
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent {
+      background: linear-gradient(135deg, var(--green), var(--green-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .sub {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 10px;
+      line-height: 1.7;
+    }
+    .hero .sub2 {
+      font-size: 1rem;
+      color: var(--subtle);
+      max-width: 440px;
+      margin: 0 auto 44px;
+    }
+
+    /* ---- Email form ---- */
+    .form-wrap { max-width: 460px; margin: 0 auto; }
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+    .form-row input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input::placeholder { color: var(--muted); }
+    .form-row input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(34,197,94,0.1); }
+    .form-row button {
+      background: var(--green);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .form-row button:hover { background: var(--green-light); }
+    .form-row button:active { transform: scale(0.98); }
+    .form-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .form-hint { color: var(--subtle); font-size: 13px; margin-top: 10px; text-align: center; }
+    .form-msg { font-size: 14px; margin-top: 8px; text-align: center; }
+    .form-msg.success { color: var(--green-light); }
+    .form-msg.error { color: var(--red); }
+    .success-box {
+      background: rgba(20,83,45,0.4);
+      border: 1px solid var(--green-border);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+    .success-box .emoji { font-size: 2rem; margin-bottom: 8px; }
+    .success-box p { color: #86efac; font-weight: 500; font-size: 1.05rem; }
+
+    /* ---- Section headings ---- */
+    .section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .section-sub { color: var(--muted); text-align: center; margin-bottom: 48px; max-width: 540px; margin-left: auto; margin-right: auto; }
+
+    /* ---- Card grid ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--subtle); }
+    .card .icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .card p { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+
+    /* ---- What you get ---- */
+    .get-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 48px;
+    }
+    .get-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      list-style: none;
+    }
+    .get-list li { display: flex; gap: 12px; align-items: flex-start; }
+    .check {
+      width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+      font-size: 11px;
+    }
+    .get-list .title { font-weight: 600; font-size: 0.95rem; margin-bottom: 2px; }
+    .get-list .desc { color: var(--muted); font-size: 0.84rem; }
+
+    /* ---- Comparison table ---- */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: rgba(255,255,255,0.03); }
+    thead th { padding: 14px 20px; font-size: 0.875rem; font-weight: 600; text-align: center; }
+    thead th:first-child { text-align: left; color: var(--muted); }
+    thead th:nth-child(2) { color: var(--green-light); }
+    thead th:nth-child(3) { color: var(--muted); }
+    tbody tr { border-top: 1px solid rgba(255,255,255,0.04); transition: background 0.15s; }
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+    tbody td { padding: 13px 20px; font-size: 0.9rem; text-align: center; }
+    tbody td:first-child { text-align: left; color: #d4d4d8; }
+    .yes { color: var(--green); font-size: 1.1rem; }
+    .no { color: var(--subtle); font-size: 1.1rem; }
+
+    /* ---- For you list ---- */
+    .for-you {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 600px;
+      margin: 0 auto;
+      list-style: none;
+    }
+    .for-you li {
+      display: flex; gap: 10px; align-items: center;
+      color: #d4d4d8; font-size: 0.95rem;
+    }
+    .arrow { color: var(--green); flex-shrink: 0; }
+
+    /* ---- CTA section ---- */
+    .cta-section { text-align: center; }
+    .cta-section h2 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .cta-section p { color: var(--muted); margin-bottom: 36px; }
+
+    /* ---- Footer ---- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 600px) {
+      .form-row { flex-direction: column; }
+      .get-list { grid-template-columns: 1fr; }
+      .for-you { grid-template-columns: 1fr; }
+      .get-box { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Spots opening soon — join the waitlist
+      </div>
+
+      <h1>
+        Stop Fighting Your<br />
+        <span class="accent">No-Code Platform</span>
+      </h1>
+
+      <p class="sub">
+        Learn to vibe code with Claude Code — and build anything you can imagine, without hitting walls.
+      </p>
+      <p class="sub2">
+        Beginner-friendly. I set everything up on your computer.<br />You just need the willingness to learn.
+      </p>
+
+      <div class="form-wrap" id="top-form">
+        <div class="form-row">
+          <input type="email" id="email-top" placeholder="your@email.com" />
+          <button onclick="subscribe('email-top', 'msg-top', 'top-form')">Join for $50 →</button>
+        </div>
+        <p class="form-hint">No spam. Just a heads up when your spot is ready.</p>
+        <p class="form-msg" id="msg-top"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you get -->
+  <section>
+    <div class="container">
+      <div class="get-box">
+        <h2 class="section-title" style="text-align:left; margin-bottom:6px;">What You Get for $50</h2>
+        <p style="color:var(--muted); margin-bottom:32px;">One flat fee. No subscriptions. No upsells.</p>
+        <ul class="get-list">
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <div class="title">Personal setup session</div>
+              <div class="desc">I get on a call and install Claude Code on your machine, configured and ready to go</div>
+            </div>
+          </li>
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <div class="title">Guided walkthrough</div>
+              <div class="desc">Learn how to talk to Claude Code to get exactly what you want built</div>
+            </div>
+          </li>
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <div class="title">Real project starter</div>
+              <div class="desc">We'll build something together from scratch so you see the full flow</div>
+            </div>
+          </li>
+          <li>
+            <div class="check">✓</div>
+            <div>
+              <div class="title">Async support</div>
+              <div class="desc">Have questions after? Reach out. I help beginners get unstuck</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Claude Code -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why Claude Code?</h2>
+      <p class="section-sub">Not a builder tool. Not a no-code platform. This is how you actually ship software with AI.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="icon">🔓</div>
+          <h3>You Own Your Code</h3>
+          <p>Every file lives on your machine. No platform holds your project hostage. Push to GitHub, deploy anywhere — you're in control.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h3>No Ceilings</h3>
+          <p>No-code tools like Base44 hit a wall fast. Complex logic, custom APIs, third-party integrations — they all require real code. Claude Code handles all of it.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💬</div>
+          <h3>Just Describe What You Want</h3>
+          <p>You talk, Claude Code builds. It reads your entire codebase, understands context, and makes the right changes — no copy-pasting snippets into a chat box.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Works With Real Dev Tools</h3>
+          <p>Git, npm, databases, APIs, terminals — Claude Code lives in your actual development environment, not a sandboxed toy editor.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>Deploy Anywhere</h3>
+          <p>Vercel, AWS, Railway, your own server — you're not tied to a single platform's hosting. Build once, deploy wherever makes sense.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧠</div>
+          <h3>Skills That Actually Transfer</h3>
+          <p>You'll pick up real engineering concepts along the way. No-code skills die with the platform. These skills are yours forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Claude Code vs. Platforms Like Base44</h2>
+      <p class="section-sub">No-code tools feel fast at first — until you hit a wall you can't climb over.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Claude Code</th>
+              <th>Base44 / No-code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>You own the code</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>Works with any language or framework</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>Handles complex logic &amp; custom APIs</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>Deploy to any host</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>Scales to real production apps</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>Works with your existing projects</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+            <tr><td>No monthly platform subscription</td><td><span class="yes">✓</span></td><td><span class="no">✗</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">This Is For You If...</h2>
+      <p class="section-sub" style="margin-bottom:36px;"></p>
+      <ul class="for-you">
+        <li><span class="arrow">→</span> You have ideas but don't know how to code</li>
+        <li><span class="arrow">→</span> You've tried no-code tools and hit their limits</li>
+        <li><span class="arrow">→</span> You want to build real, shippable products</li>
+        <li><span class="arrow">→</span> You're willing to learn a few technical concepts</li>
+        <li><span class="arrow">→</span> You want to own your work, not rent it</li>
+        <li><span class="arrow">→</span> You learn better with hands-on help</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Build Without Limits?</h2>
+      <p>Drop your email and I'll reach out when your spot is ready.<br />One-time $50 — no surprises.</p>
+
+      <div class="form-wrap" id="bottom-form">
+        <div class="form-row">
+          <input type="email" id="email-bottom" placeholder="your@email.com" />
+          <button onclick="subscribe('email-bottom', 'msg-bottom', 'bottom-form')">Join for $50 →</button>
+        </div>
+        <p class="form-hint">No spam. Just a heads up when your spot is ready.</p>
+        <p class="form-msg" id="msg-bottom"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Vibe Code with Claude Code</p>
+  </footer>
+
+  <script>
+    async function subscribe(inputId, msgId, formId) {
+      const input = document.getElementById(inputId);
+      const msg = document.getElementById(msgId);
+      const email = input.value.trim();
+      const btn = input.parentElement.querySelector('button');
+
+      if (!email) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Joining...';
+      msg.textContent = '';
+      msg.className = 'form-msg';
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json();
+
+        if (res.ok) {
+          document.getElementById(formId).innerHTML = `
+            <div class="success-box">
+              <div class="emoji">🎉</div>
+              <p>You're on the list! I'll reach out soon.</p>
+            </div>
+          `;
+        } else {
+          msg.textContent = data.error || 'Something went wrong.';
+          msg.className = 'form-msg error';
+          btn.disabled = false;
+          btn.textContent = 'Join for $50 →';
+        }
+      } catch {
+        msg.textContent = 'Network error. Please try again.';
+        msg.className = 'form-msg error';
+        btn.disabled = false;
+        btn.textContent = 'Join for $50 →';
+      }
+    }
+
+    // Allow pressing Enter in email inputs
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      if (e.target.id === 'email-top') subscribe('email-top', 'msg-top', 'top-form');
+      if (e.target.id === 'email-bottom') subscribe('email-bottom', 'msg-bottom', 'bottom-form');
+    });
+  </script>
+
+</body>
+</html>
