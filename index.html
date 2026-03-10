@@ -458,6 +458,7 @@
         const data = await res.json();
 
         if (res.ok) {
+          if (typeof fbq === 'function') fbq('track', 'SubmitApplication');
           document.getElementById(formId).innerHTML = `
             <div class="success-box">
               <div class="emoji">🎉</div>
